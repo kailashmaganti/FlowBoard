@@ -14,16 +14,15 @@ https://YOUR_USERNAME.github.io/FlowBoard/
 
 ## Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+screenshots/dashboard.png
 
 ## Add Task
 
-![Add Task](screenshots/add-task.png)
+screenshots/add-task.png
 
 ## Task Board
 
-![Task Board](screenshots/task-board.png)
-
+screenshots/task-board.png
 
 ---
 
