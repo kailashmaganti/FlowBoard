@@ -6,23 +6,34 @@ FlowBoard is a modern Kanban Board web application that helps users organize tas
 
 Add your GitHub Pages link here:
 
-https://YOUR_USERNAME.github.io/FlowBoard/
+https://kailashmaganti.github.io/FlowBoard/
 
 ---
 
 ## 📸 Screenshots
 
-## Dashboard
+### Dashboard
 
-screenshots/dashboard.png
+![Dashboard](screenshots/dashboard.png)
 
-## Add Task
+---
 
-screenshots/add-task.png
+### Add Task
 
-## Task Board
+![Add Task](screenshots/add-task.png)
 
-screenshots/task-board.png
+---
+
+### Task Board
+
+![Task Board](screenshots/task-board.png)
+
+---
+
+### Dark Mode
+
+![Dark Mode](screenshots/dark-mode.png)
+
 
 ---
 
