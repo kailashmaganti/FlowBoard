@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>FlowBoard</title>
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- =========================================
+HEADER
+========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-table-columns"></i>
+
+        </div>
+
+        <div>
+
+            <h1>
+
+                FlowBoard
+
+            </h1>
+
+            <p>
+
+                Smart Kanban Project Manager
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchTask"
+                placeholder="Search tasks...">
+
+        </div>
+
+        <button id="themeToggle">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- =========================================
+DASHBOARD
+========================================= -->
+
+<section class="dashboard">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-layer-group"></i>
+
+        <div>
+
+            <h2 id="totalTasks">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Total Tasks
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-hourglass-half"></i>
+
+        <div>
+
+            <h2 id="pendingTasks">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Pending
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <div>
+
+            <h2 id="completedTasks">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Completed
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <div>
+
+            <h2 id="progressPercent">
+
+                0%
+
+            </h2>
+
+            <p>
+
+                Productivity
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+TOP BAR
+========================================= -->
+
+<section class="top-bar">
+
+    <div class="today">
+
+        <i class="fa-solid fa-calendar-days"></i>
+
+        <span id="currentDate"></span>
+
+    </div>
+
+    <button id="addTaskBtn">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Add Task
+
+    </button>
+
+</section>
+
+<!-- =========================================
+PROGRESS
+========================================= -->
+
+<section class="progress-section">
+
+    <div class="progress-header">
+
+        <h3>
+
+            <i class="fa-solid fa-bolt"></i>
+
+            Productivity Progress
+
+        </h3>
+
+        <span id="progressText">
+
+            0%
+
+        </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            id="progressFill"
+            class="progress-fill">
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+KANBAN BOARD
+========================================= -->
+
+<main class="board">
+
+    <!-- ==============================
+    TO DO
+    =============================== -->
+
+    <section class="column todo-column">
+
+        <div class="column-header">
+
+            <h2>
+
+                <i class="fa-solid fa-list-check"></i>
+
+                To Do
+
+            </h2>
+
+            <span id="todoCount">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div
+            id="todo"
+            class="task-list">
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+    IN PROGRESS
+    =============================== -->
+
+    <section class="column progress-column">
+
+        <div class="column-header">
+
+            <h2>
+
+                <i class="fa-solid fa-spinner"></i>
+
+                In Progress
+
+            </h2>
+
+            <span id="progressCount">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div
+            id="progress"
+            class="task-list">
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+    REVIEW
+    =============================== -->
+
+    <section class="column review-column">
+
+        <div class="column-header">
+
+            <h2>
+
+                <i class="fa-solid fa-eye"></i>
+
+                Review
+
+            </h2>
+
+            <span id="reviewCount">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div
+            id="review"
+            class="task-list">
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+    DONE
+    =============================== -->
+
+    <section class="column done-column">
+
+        <div class="column-header">
+
+            <h2>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Done
+
+            </h2>
+
+            <span id="doneCount">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div
+            id="done"
+            class="task-list">
+
+        </div>
+
+    </section>
+
+</main>
+<!-- =========================================
+ADD TASK MODAL
+========================================= -->
+
+<div
+    id="taskModal"
+    class="modal hidden">
+
+    <div class="modal-content">
+
+        <!-- ==========================
+        HEADER
+        =========================== -->
+
+        <div class="modal-header">
+
+            <h2>
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                Create New Task
+
+            </h2>
+
+            <p>
+
+                Organize your work by creating a new task for your board.
+
+            </p>
+
+        </div>
+
+        <!-- ==========================
+        FORM
+        =========================== -->
+
+        <form id="taskForm">
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label>
+
+                    <i class="fa-solid fa-heading"></i>
+
+                    Task Title
+
+                </label>
+
+                <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Enter task title..."
+                    required>
+
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label>
+
+                    <i class="fa-solid fa-align-left"></i>
+
+                    Description
+
+                </label>
+
+                <textarea
+                    id="taskDescription"
+                    maxlength="250"
+                    placeholder="Describe your task..."></textarea>
+
+                <small>
+
+                    <span id="charCount">
+
+                        0
+
+                    </span>
+
+                    /250 Characters
+
+                </small>
+
+            </div>
+
+            <!-- PRIORITY -->
+
+            <div class="form-group">
+
+                <label>
+
+                    <i class="fa-solid fa-flag"></i>
+
+                    Priority
+
+                </label>
+
+                <select id="taskPriority">
+
+                    <option>
+
+                        High
+
+                    </option>
+
+                    <option selected>
+
+                        Medium
+
+                    </option>
+
+                    <option>
+
+                        Low
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- DUE DATE -->
+
+            <div class="form-group">
+
+                <label>
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    Due Date
+
+                </label>
+
+                <input
+                    type="date"
+                    id="taskDate">
+
+            </div>
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label>
+
+                    <i class="fa-solid fa-tag"></i>
+
+                    Category
+
+                </label>
+
+                <input
+                    type="text"
+                    id="taskLabel"
+                    placeholder="Frontend, Backend, Design...">
+
+            </div>
+
+            <!-- BUTTONS -->
+
+            <div class="modal-buttons">
+
+                <button
+                    type="button"
+                    id="closeModal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Task
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =========================================
+TOAST CONTAINER
+========================================= -->
+
+<div id="toastContainer"></div>
+
+<!-- =========================================
+FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h3>
+
+            <i class="fa-solid fa-table-columns"></i>
+
+            FlowBoard
+
+        </h3>
+
+        <p>
+
+            A modern Kanban Board built with
+            HTML • CSS • JavaScript
+
+        </p>
+
+        <small>
+
+            HackWeek Challenge #11 • 2026
+
+        </small>
+
+    </div>
+
+</footer>
+
+</div>
+
+<!-- =========================================
+SCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
