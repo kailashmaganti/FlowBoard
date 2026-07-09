@@ -16,11 +16,6 @@ https://kailashmaganti.github.io/FlowBoard/
 
 ![Dashboard](screenshots/dashboard.png)
 
----
-
-### Add Task
-
-![Add Task](screenshots/add-task.png)
 
 ---
 
@@ -30,12 +25,6 @@ https://kailashmaganti.github.io/FlowBoard/
 
 ---
 
-### Dark Mode
-
-![Dark Mode](screenshots/dark-mode.png)
-
-
----
 
 ## ✨ Features
 
